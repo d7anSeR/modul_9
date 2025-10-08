@@ -9,7 +9,7 @@ class Elevator {
     private boolean isEnable = true;
     private List<Cargo> cargos = new ArrayList<>();
 
-    void add(Cargo cargo) {
+    public void add(Cargo cargo) {
         if (currentWeight + cargo.getWeight() <= MAX_WEIGHT) {
             cargos.add(cargo);
             currentWeight += cargo.getWeight();
@@ -20,7 +20,7 @@ class Elevator {
         }
     }
 
-    void push() {
+    public void push() {
         if (isEnable && currentWeight > 0) {
             System.out.println("Лифт поехал с весом: " + currentWeight + " кг");
         } else if (currentWeight == 0) {
@@ -30,7 +30,7 @@ class Elevator {
         }
     }
 
-    void pop() {
+    public void pop() {
         if (cargos.isEmpty()) {
             System.out.println("Лифт пустой, нечего выгружать.");
         } else {

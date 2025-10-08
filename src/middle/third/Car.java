@@ -3,7 +3,7 @@ package middle.third;
 class Car {
     private String number;
 
-    Car(String number) {
+    public Car(String number) {
         this.number = number;
     }
 

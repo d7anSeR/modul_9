@@ -11,7 +11,7 @@ public class Main {
 
         };
         Bank bank = new Bank(bankAccounts);
-        bank.moveMoney(1,2,11);
-        bank.moveMoney(1,2,2); //ошибка
+        bank.moveMoney(bankAccounts[0],bankAccounts[1],11);
+        bank.moveMoney(bankAccounts[0],bankAccounts[1],2); //ошибка
     }
 }

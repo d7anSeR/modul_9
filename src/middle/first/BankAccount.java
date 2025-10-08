@@ -7,7 +7,7 @@ class BankAccount {
         this.balance = balance;
     }
 
-    void push(int money) {
+    public void push(int money) {
         if (money <= 0) {
             System.out.println("Внесенная сумма денег должна быть больше 0");
         } else {
@@ -16,7 +16,7 @@ class BankAccount {
         }
     }
 
-    void pop(int money) {
+    public void pop(int money) {
         if (money > balance) {
             System.out.println("Недостаточно средств на банковском счете");
         } else if (money <= 0) {

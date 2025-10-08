@@ -7,12 +7,12 @@ class Bank {
     private int maxBalance;
     private List<Account> accounts;
 
-    Bank(int maxBalance) {
+    public Bank(int maxBalance) {
         this.maxBalance = maxBalance;
         this.accounts = new ArrayList<>();
     }
 
-    Account createAccount(int initialBalance) {
+    public Account createAccount(int initialBalance) {
         if (getTotalBalance() + initialBalance <= maxBalance) {
             Account account = new Account(initialBalance);
             accounts.add(account);
@@ -24,7 +24,7 @@ class Bank {
         }
     }
 
-    boolean transfer(Account from, Account to, int amount) {
+    public boolean transfer(Account from, Account to, int amount) {
         if (from.withdraw(amount)) {
             to.deposit(amount);
             System.out.println("Перевод " + amount + "р: " + from + " → " + to);
@@ -35,7 +35,7 @@ class Bank {
         }
     }
 
-    int getTotalBalance() {
+    public int getTotalBalance() {
         int sum = 0;
         for (Account acc : accounts) {
             sum += acc.getBalance();
@@ -43,7 +43,7 @@ class Bank {
         return sum;
     }
 
-    void showAccounts() {
+    public void showAccounts() {
         System.out.println("Все счета: " + accounts + " | Общий баланс: " + getTotalBalance() + "/" + maxBalance);
     }
 }

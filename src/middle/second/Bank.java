@@ -4,27 +4,28 @@ package middle.second;
 class Bank {
     private BankAccount[] bankAccounts;
 
-    Bank(BankAccount[] bankAccounts) {
+    public Bank(BankAccount[] bankAccounts) {
         this.bankAccounts = bankAccounts;
     }
 
-    void moveMoney(int i, int j, int money){
-        if(i > bankAccounts.length || j > bankAccounts.length || (i - 1) < 0 || (j - 1) < 0){
-            System.out.println("Невалидный номера какого-то из счетов");
-        }
-        else if(money <= 0){
+    public void moveMoney(BankAccount income, BankAccount outcome, int money) {
+        if (money <= 0) {
             System.out.println("Сумма перевода должна быть больше 0");
-        }
-        else{
-            if(bankAccounts[i-1].pop(money)){
-                System.out.println("Успешно переведено " + money + " рублей со счета " + i + " на счет " + j);
-                bankAccounts[j-1].push(money);
-            }
-            else{
-                System.out.println("Недостаточно средств для перевода со счета " + i);
+        } else {
+            for (BankAccount bankFirst : bankAccounts) {
+                if (bankFirst.equals(income)) {
+                    for (BankAccount bankSecond : bankAccounts) {
+                        if (bankSecond.equals(outcome)) {
+                            if (bankFirst.pop(money)) {
+                                bankSecond.push(money);
+                                System.out.println("Успешно переведено " + money + " руб. со счета " + income + " на счет " + outcome);
+                            } else {
+                                System.out.println("Недостаточно средств для перевода со счета " + income);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
-
-
 }

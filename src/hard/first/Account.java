@@ -3,21 +3,21 @@ package hard.first;
 class Account {
     private int balance;
 
-    Account(int initialBalance) {
+    public Account(int initialBalance) {
         this.balance = initialBalance;
     }
 
-    int getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    void deposit(int amount) {
+    public void deposit(int amount) {
         if (amount > 0) {
             balance += amount;
         }
     }
 
-    boolean withdraw(int amount) {
+    public boolean withdraw(int amount) {
         if (amount > 0 && balance >= amount) {
             balance -= amount;
             return true;

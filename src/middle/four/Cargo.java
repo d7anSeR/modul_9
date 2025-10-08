@@ -3,11 +3,11 @@ package middle.four;
 class Cargo {
     private int weight;
 
-    Cargo(int weight) {
+    public Cargo(int weight) {
         this.weight = weight;
     }
 
-    int getWeight() {
+    public int getWeight() {
         return weight;
     }
 
